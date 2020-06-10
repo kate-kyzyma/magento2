@@ -43,7 +43,7 @@
             <deleteData createDataKey="createSecondCategory" stepKey="deleteSecondCategory"/>
             <deleteData createDataKey="createFirstSimpleProduct" stepKey="deleteFirstSimpleProduct"/>
             <deleteData createDataKey="createSecondSimpleProduct" stepKey="deleteSecondSimpleProduct"/>
-            <actionGroup ref="AdminDeleteStoreViewActionGroup" stepKey="deleteStoreView"/>
+            <actionGroup ref="AdminDeleteStoreViewActionGroup" stepKey="deleteCustomStoreView"/>
             <actionGroup ref="ClearFiltersAdminDataGridActionGroup" stepKey="clearWebsitesGridFilters"/>
             <actionGroup ref="AdminLogoutActionGroup" stepKey="logoutFromAdmin"/>
         </after>
@@ -54,7 +54,7 @@
             <argument name="CatName" value="$createFirstCategory.name$"/>
         </actionGroup>
 
-        <!-- Change url key for category for first category; save -->
+        <!-- Change url key for category for first category; save-->
         <actionGroup ref="ChangeSeoUrlKeyForSubCategoryActionGroup" stepKey="changeFirstCategoryUrlKey">
             <argument name="value" value="{{SimpleRootSubCategory.url_key}}"/>
         </actionGroup>
@@ -66,8 +66,8 @@
 
         <!-- Move first category inside second category -->
         <actionGroup ref="MoveCategoryActionGroup" stepKey="moveFirstCategoryInsideSecondCategory">
-            <argument name="childCategory" value="$createFirstCategory.name$"/>
-            <argument name="parentCategory" value="$createSecondCategory.name$"/>
+            <argument name="childCategory" value="$$createFirstCategory.name$$"/>
+            <argument name="parentCategory" value="$$createSecondCategory.name$$"/>
         </actionGroup>
 
         <!-- Open first category storefront page -->
